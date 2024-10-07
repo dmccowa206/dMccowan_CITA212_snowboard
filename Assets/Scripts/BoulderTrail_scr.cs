@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class DustTrail_scr : MonoBehaviour
+public class BoulderTrail_scr : MonoBehaviour
 {
-    [SerializeField] ParticleSystem dustEffect;
+    [SerializeField] ParticleSystem boulderEffect;
     void OnCollisionEnter2D(Collision2D c)
     {
         if (c.gameObject.tag == "Ground")
         {
-            dustEffect.Play();
+            boulderEffect.Play();
         }
     }
     void OnCollisionExit2D(Collision2D c)
     {
         if (c.gameObject.tag == "Ground")
         {
-            dustEffect.Stop();
+            boulderEffect.Stop();
         }
     }
 }

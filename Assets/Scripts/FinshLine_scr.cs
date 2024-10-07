@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -20,6 +17,7 @@ public class FinshLine_scr : MonoBehaviour
     }
     void ReloadScene()
     {
+        FindObjectOfType<PlayerControl_scr>().ResetVar();
         SceneManager.LoadScene(0);
     }
 }
