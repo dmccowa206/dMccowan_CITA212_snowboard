@@ -6,9 +6,10 @@ using UnityEngine;
 public class PlayerControl_scr : MonoBehaviour
 {
     Rigidbody2D rb2d;
-    [SerializeField] float torqAmount = 5;
-    [SerializeField] float baseSpeed = 15;
-    [SerializeField] float boostSpeed = 30;
+    [SerializeField] float torqAmount = 5f;
+    [SerializeField] float baseSpeed = 15f;
+    [SerializeField] float boostSpeed = 30f;
+    [SerializeField] float slowSpeed = 10f;
     SurfaceEffector2D surfaceEffector2d;
     void Start()
     {

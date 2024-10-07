@@ -15,6 +15,7 @@ public class FinshLine_scr : MonoBehaviour
         {
             finishEffect.Play();
             Invoke("ReloadScene", resetDelay);
+            GetComponent<AudioSource>().Play();
         }
     }
     void ReloadScene()

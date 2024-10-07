@@ -8,12 +8,14 @@ public class CrashDetector_scr : MonoBehaviour
 {
     [SerializeField] float resetDelay = 0.5f;
     [SerializeField] ParticleSystem crashEffect;
+    [SerializeField] AudioClip crashSfx;
     void OnTriggerEnter2D(Collider2D crash)//if top's collider hits something NOT the finish
     {
         if(crash.tag != "Finish")
         {
             crashEffect.Play();
             Invoke("ReloadScene", resetDelay);
+            GetComponent<AudioSource>().PlayOneShot(crashSfx);
         }
     }
     void ReloadScene()
