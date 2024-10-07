@@ -9,10 +9,12 @@ public class CrashDetector_scr : MonoBehaviour
     [SerializeField] float resetDelay = 0.5f;
     [SerializeField] ParticleSystem crashEffect;
     [SerializeField] AudioClip crashSfx;
+    private bool notDead = true;
     void OnTriggerEnter2D(Collider2D crash)//if top's collider hits something NOT the finish
     {
-        if(crash.tag != "Finish")
+        if(crash.tag != "Finish" && notDead)
         {
+            notDead = false;
             FindObjectOfType<PlayerControl_scr>().DisableControls();
             crashEffect.Play();
             Invoke("ReloadScene", resetDelay);

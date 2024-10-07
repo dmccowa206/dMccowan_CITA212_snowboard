@@ -22,8 +22,7 @@ public class PlayerControl_scr : MonoBehaviour
         if(!disable)
         {
             RotatePlayer();
-            GetBoost();
-            SlowDown();
+            ChangeSpeed();
         }
     }
     public void DisableControls()
@@ -31,20 +30,13 @@ public class PlayerControl_scr : MonoBehaviour
         disable = true;
     }
 
-    void GetBoost()
+    void ChangeSpeed()
     {
         if (Input.GetKey(KeyCode.W))
         {
             surfaceEffector2d.speed = boostSpeed;
         }
-        else
-        {
-            surfaceEffector2d.speed = baseSpeed;
-        }
-    }
-    void SlowDown()
-    {
-        if (Input.GetKey(KeyCode.S))
+        else if (Input.GetKey(KeyCode.S))
         {
             surfaceEffector2d.speed = slowSpeed;
         }
