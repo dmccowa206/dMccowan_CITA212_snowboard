@@ -13,6 +13,7 @@ public class CrashDetector_scr : MonoBehaviour
     {
         if(crash.tag != "Finish")
         {
+            FindObjectOfType<PlayerControl_scr>().DisableControls();
             crashEffect.Play();
             Invoke("ReloadScene", resetDelay);
             GetComponent<AudioSource>().PlayOneShot(crashSfx);

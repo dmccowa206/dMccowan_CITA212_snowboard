@@ -11,6 +11,7 @@ public class PlayerControl_scr : MonoBehaviour
     [SerializeField] float boostSpeed = 30f;
     [SerializeField] float slowSpeed = 10f;
     SurfaceEffector2D surfaceEffector2d;
+    private bool disable = false;
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
@@ -18,8 +19,16 @@ public class PlayerControl_scr : MonoBehaviour
     }
     void Update()
     {
-        RotatePlayer();
-        GetBoost();
+        if(!disable)
+        {
+            RotatePlayer();
+            GetBoost();
+            SlowDown();
+        }
+    }
+    public void DisableControls()
+    {
+        disable = true;
     }
 
     void GetBoost()
@@ -27,6 +36,17 @@ public class PlayerControl_scr : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             surfaceEffector2d.speed = boostSpeed;
+        }
+        else
+        {
+            surfaceEffector2d.speed = baseSpeed;
+        }
+    }
+    void SlowDown()
+    {
+        if (Input.GetKey(KeyCode.S))
+        {
+            surfaceEffector2d.speed = slowSpeed;
         }
         else
         {
